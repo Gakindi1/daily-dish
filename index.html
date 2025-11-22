@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RecipeHub - Simple</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <i class="fa-solid fa-utensils"></i>
+        <h1>RecipeHub</h1>
+      </div>
+
+      <form class="search-box" id="searchForm">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search for a recipe (e.g. pasta, chicken, soup...)"
+        />
+        <button type="submit">Search</button>
+      </form>
+    </header>
+
+    <main class="main-container">
+      <!-- Recipe of the day -->
+      <section class="featured-section">
+        <h2><i class="fa-solid fa-star"></i> Recipe of the Day</h2>
+        <div id="featuredRecipe" class="featured-recipe">
+          <p class="loading">
+            <i class="fa-solid fa-spinner fa-spin"></i> Loading...
+          </p>
+        </div>
+      </section>
+
+      <!-- search results -->
+      <section id="resultsSection" class="results-section hidden">
+        <h2><i class="fa-solid fa-search"></i> Search Results</h2>
+        <p class="results-info">
+          Found <span id="resultsCount">0</span> recipes
+        </p>
+        <div id="recipeGrid" class="recipe-grid"></div>
+      </section>
+    </main>
+
+    <!-- recipe details modal -->
+    <div id="modal" class="modal">
+      <div class="modal-box">
+        <button id="closeBtn" class="close-btn">&times;</button>
+        <h2 id="modalTitle">Recipe Name</h2>
+        <p><strong>Servings:</strong> <span id="modalServings">-</span></p>
+        <h3>Ingredients:</h3>
+        <ul id="modalIngredients"></ul>
+        <h3>Instructions:</h3>
+        <p id="modalInstructions"></p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
