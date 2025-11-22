@@ -1,0 +1,293 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: rgb(245, 245, 245);
+  color: rgb(51, 51, 51);
+}
+
+header {
+  background: rgb(255, 255, 255);
+  padding: 20px;
+  border-bottom: 1px solid rgb(221, 221, 221);
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.logo i {
+  color: rgb(220, 38, 38);
+  font-size: 28px;
+}
+
+.logo h1 {
+  font-size: 24px;
+}
+
+/* Search Box */
+.search-box {
+  display: flex;
+  gap: 10px;
+  max-width: 600px;
+  position: relative;
+}
+
+.search-box i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgb(153, 153, 153);
+}
+
+#searchInput {
+  flex: 1;
+  padding: 12px 12px 12px 40px;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#searchInput:focus {
+  outline: none;
+  border-color: rgb(220, 38, 38);
+}
+
+.search-box button {
+  padding: 12px 24px;
+  background: rgb(220, 38, 38);
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.search-box button:hover {
+  background: rgb(185, 28, 28);
+}
+
+.main-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.featured-section {
+  margin-bottom: 40px;
+}
+
+.featured-section h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: rgb(51, 51, 51);
+}
+
+.featured-section h2 i {
+  color: rgb(245, 158, 11);
+  margin-right: 8px;
+}
+
+.featured-recipe {
+  background: rgb(255, 255, 255);
+  padding: 25px;
+  border-radius: 10px;
+  border: 2px solid rgb(245, 158, 11);
+}
+
+.featured-recipe h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: rgb(51, 51, 51);
+}
+
+.featured-recipe .info {
+  color: rgb(102, 102, 102);
+  margin-bottom: 15px;
+}
+
+.featured-recipe .preview {
+  color: rgb(85, 85, 85);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.loading {
+  text-align: center;
+  color: rgb(153, 153, 153);
+  padding: 20px;
+}
+
+.results-section {
+  margin-top: 30px;
+}
+
+.results-section h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.results-section h2 i {
+  color: rgb(220, 38, 38);
+  margin-right: 8px;
+}
+
+.results-info {
+  color: rgb(102, 102, 102);
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
+}
+
+/* Recipe card styles */
+.recipe-card {
+  background: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid rgb(238, 238, 238);
+}
+
+.recipe-card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-card h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.recipe-card .info {
+  font-size: 13px;
+  color: rgb(102, 102, 102);
+  margin-bottom: 15px;
+}
+
+.view-btn {
+  width: 100%;
+  padding: 10px;
+  background: rgb(220, 38, 38);
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.view-btn:hover {
+  background: rgb(185, 28, 28);
+}
+
+/* popup styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-box {
+  background: rgb(255, 255, 255);
+  padding: 25px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgb(102, 102, 102);
+}
+
+.close-btn:hover {
+  color: rgb(220, 38, 38);
+}
+
+.modal-box h2 {
+  margin-bottom: 15px;
+  padding-right: 30px;
+}
+
+.modal-box h3 {
+  margin: 15px 0 10px 0;
+  color: rgb(51, 51, 51);
+}
+
+.modal-box ul {
+  margin-left: 20px;
+  color: rgb(85, 85, 85);
+}
+
+.modal-box ul li {
+  margin-bottom: 5px;
+}
+
+#modalInstructions {
+  color: rgb(85, 85, 85);
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+.hidden {
+  display: none;
+}
+
+.message {
+  text-align: center;
+  padding: 40px;
+  color: rgb(102, 102, 102);
+}
+
+.message i {
+  font-size: 40px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Mobile design */
+@media (max-width: 600px) {
+  .search-box {
+    flex-direction: column;
+  }
+
+  .search-box button {
+    width: 100%;
+  }
+
+  .recipe-grid {
+    grid-template-columns: 1fr;
+  }
+}
