@@ -70,7 +70,8 @@ async function searchRecipes(searchTerm) {
 
 function displaySearchResults(recipes) {
   recipeGrid.innerHTML = "";
-  resultsCount.textContent = recipes.length;
+  resultsCount.textContent =
+    recipes.length + (recipes.length === 1 ? " recipe" : " recipes");
 
   if (recipes.length === 0) {
     recipeGrid.innerHTML =
