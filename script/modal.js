@@ -1,3 +1,5 @@
+import { parseIngredients } from "./api.js";
+
 const modal = document.getElementById("modal");
 const closeBtn = document.getElementById("closeBtn");
 const modalTitle = document.getElementById("modalTitle");
@@ -9,7 +11,6 @@ function showModal(recipe) {
   modalTitle.textContent = recipe.title;
   modalServings.textContent = recipe.servings || "Not specified";
 
-  // Show ingredients
   modalIngredients.innerHTML = "";
   const ingredients = parseIngredients(recipe);
 
@@ -19,7 +20,6 @@ function showModal(recipe) {
     modalIngredients.appendChild(li);
   }
 
-  // Show instructions
   modalInstructions.textContent =
     recipe.instructions || "No instructions available";
 
@@ -31,20 +31,19 @@ function closeModal() {
 }
 
 function setupModalListeners() {
-  // Close button click
   closeBtn.addEventListener("click", closeModal);
 
-  // Click outside modal to close
   modal.addEventListener("click", function (e) {
     if (e.target === modal) {
       closeModal();
     }
   });
 
-  // Press Escape to close
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
       closeModal();
     }
   });
 }
+
+export { showModal, closeModal, setupModalListeners };

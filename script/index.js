@@ -1,3 +1,6 @@
+import { setupModalListeners, showModal } from "./modal.js";
+import { fetchRandomRecipe, fetchRecipes, parseIngredients } from "./api.js";
+
 let featuredRecipeData = null;
 let searchResults = [];
 
@@ -9,7 +12,6 @@ const recipeGrid = document.getElementById("recipeGrid");
 const resultsCount = document.getElementById("resultsCount");
 
 async function loadFeaturedRecipe() {
-  // Show loading
   featuredRecipe.innerHTML =
     '<p class="loading"><i class="fa-solid fa-spinner fa-spin"></i> Loading...</p>';
 
@@ -27,7 +29,6 @@ function displayFeaturedRecipe(recipe) {
   const ingredients = parseIngredients(recipe);
   const numIngredients = ingredients.length;
 
-  // Show first few ingredients as preview
   let preview = "";
   if (ingredients.length > 0) {
     const first3 = ingredients.slice(0, 3);
@@ -52,14 +53,12 @@ function displayFeaturedRecipe(recipe) {
     "</p>" +
     '<button class="view-btn" id="featuredBtn">View Full Recipe</button>';
 
-  // Add click listener to the button
   document.getElementById("featuredBtn").addEventListener("click", function () {
     showModal(featuredRecipeData);
   });
 }
 
 async function searchRecipes(searchTerm) {
-  // Show results section with loading
   resultsSection.classList.remove("hidden");
   recipeGrid.innerHTML =
     '<div class="message"><i class="fa-solid fa-spinner fa-spin"></i> Searching...</div>';
@@ -73,14 +72,12 @@ function displaySearchResults(recipes) {
   recipeGrid.innerHTML = "";
   resultsCount.textContent = recipes.length;
 
-  // If no recipes found
   if (recipes.length === 0) {
     recipeGrid.innerHTML =
       '<div class="message"><i class="fa-solid fa-utensils"></i> No recipes found. Try a different search.</div>';
     return;
   }
 
-  // Loop through recipes and create cards
   for (let i = 0; i < recipes.length; i++) {
     const recipe = recipes[i];
     const ingredients = parseIngredients(recipe);
@@ -104,7 +101,6 @@ function displaySearchResults(recipes) {
   }
 }
 
-// Search form submit
 searchForm.addEventListener("submit", function (e) {
   e.preventDefault();
   const searchTerm = searchInput.value.trim();
@@ -120,6 +116,5 @@ recipeGrid.addEventListener("click", function (e) {
   }
 });
 
-// start the script
 setupModalListeners();
 loadFeaturedRecipe();

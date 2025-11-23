@@ -1,7 +1,8 @@
-import { API_KEY, API_URL } from "./env.js";
+import { API_KEY } from "./env.js";
+
+const API_URL = "https://api.api-ninjas.com/v1/recipe";
 
 async function fetchRandomRecipe() {
-  // Random food words to pick from
   const foods = [
     "pasta",
     "chicken",
@@ -15,7 +16,6 @@ async function fetchRandomRecipe() {
     "pizza",
   ];
 
-  // Pick a random food
   const randomFood = foods[Math.floor(Math.random() * foods.length)];
 
   try {
@@ -27,7 +27,6 @@ async function fetchRandomRecipe() {
     const data = await response.json();
 
     if (data.length > 0) {
-      // Pick a random recipe from results
       const randomIndex = Math.floor(Math.random() * data.length);
       return data[randomIndex];
     } else {
@@ -57,3 +56,5 @@ async function fetchRecipes(searchTerm) {
 function parseIngredients(recipe) {
   return recipe.ingredients ? recipe.ingredients.split("|") : [];
 }
+
+export { fetchRandomRecipe, fetchRecipes, parseIngredients };
