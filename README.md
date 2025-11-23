@@ -37,11 +37,7 @@ A simple recipe finder app with a daily random recipe and search feature.
     └── index.js    # Main app logic
 ```
 
-## Screenshot
+## Demo Screenshots
 
-![Daily Dish Screenshot](screenshot.png)
-
-## Quick Links
-
-Watch a demo video here:
-The app is live at:
+![Daily Dish Screenshot](assets/screenshot1.png)
+![Daily Dish Screenshot](assets/screenshot2.png)
