@@ -13,6 +13,15 @@ A simple recipe finder app with a daily random recipe and search feature.
 - HTML, CSS, JavaScript
 - [API Ninjas Recipe API](https://api-ninjas.com/api/recipe)
 
+## About API Used
+
+### Recipe API
+
+- **Purpose:** Fetch recipe data
+- **Documentation:** https://api-ninjas.com/api/recipe
+- **Credit:** Powered by API Ninjas
+- **Rate Limit:** 3000 requests/month (free tier)
+
 ## Setup
 
 1. Clone the repository
@@ -41,3 +50,8 @@ A simple recipe finder app with a daily random recipe and search feature.
 
 ![Daily Dish Screenshot](assets/screenshot1.png)
 ![Daily Dish Screenshot](assets/screenshot2.png)
+
+## Quick Links
+
+- The app is live [here](https://daily-dish.gakindi1.tech/)
+- Watch the demo video [here](https://youtu.be/iGBpSus56SA?si=5ykw6vno66dSw3WM)

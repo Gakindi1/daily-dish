@@ -24,6 +24,11 @@ async function fetchRandomRecipe() {
       headers: { "X-Api-Key": API_KEY },
     });
 
+    if (!response.ok) {
+      alert("The api is currently unavailable. Please try again later.");
+      return null;
+    }
+
     const data = await response.json();
 
     if (data.length > 0) {
@@ -44,6 +49,11 @@ async function fetchRecipes(searchTerm) {
       method: "GET",
       headers: { "X-Api-Key": API_KEY },
     });
+
+    if (!response.ok) {
+      alert("The api is currently unavailable. Please try again later.");
+      return [];
+    }
 
     const data = await response.json();
     return data;
